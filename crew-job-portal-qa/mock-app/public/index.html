@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Apply for QA Engineer</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="page">
+    <header class="intro">
+      <p class="fixture-note">Test fixture for the QA assessment. It is not connected to the live Crew portal.</p>
+      <h1>Apply for QA Engineer</h1>
+      <p class="role-meta">Acme Hiring, Bengaluru, Karnataka</p>
+    </header>
+
+    <form id="application-form" novalidate>
+      <div id="form-error" class="form-error" role="alert" data-testid="form-error" hidden></div>
+
+      <div class="field">
+        <label for="fullName">Full name</label>
+        <p class="hint" id="fullName-hint">2 to 60 characters.</p>
+        <input id="fullName" name="fullName" type="text" autocomplete="name"
+               aria-required="true" aria-describedby="fullName-hint fullName-error">
+        <p class="field-error" id="fullName-error" data-testid="fullName-error" aria-live="polite" hidden></p>
+      </div>
+
+      <div class="field">
+        <label for="email">Email address</label>
+        <input id="email" name="email" type="email" autocomplete="email"
+               aria-required="true" aria-describedby="email-error">
+        <p class="field-error" id="email-error" data-testid="email-error" aria-live="polite" hidden></p>
+      </div>
+
+      <div class="field">
+        <label for="experience">Years of experience</label>
+        <p class="hint" id="experience-hint">A whole number from 0 to 20.</p>
+        <input id="experience" name="experience" type="text" inputmode="numeric" autocomplete="off"
+               aria-required="true" aria-describedby="experience-hint experience-error">
+        <p class="field-error" id="experience-error" data-testid="experience-error" aria-live="polite" hidden></p>
+      </div>
+
+      <div class="field">
+        <label for="coverNote">Cover note (optional)</label>
+        <textarea id="coverNote" name="coverNote" rows="5"
+                  aria-describedby="coverNote-count coverNote-error"></textarea>
+        <p class="counter" id="coverNote-count" data-testid="coverNote-count">0 / 500</p>
+        <p class="field-error" id="coverNote-error" data-testid="coverNote-error" aria-live="polite" hidden></p>
+      </div>
+
+      <button type="submit" id="submit-button">Submit application</button>
+    </form>
+
+    <section id="confirmation" class="confirmation" data-testid="confirmation" tabindex="-1" role="status" hidden>
+      <h2>Application received</h2>
+      <p>Thank you, <span data-testid="confirmation-name"></span>. Your reference is
+        <strong data-testid="confirmation-reference"></strong>.</p>
+      <button type="button" id="new-application">Start a new application</button>
+    </section>
+  </main>
+
+  <script src="/validation.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

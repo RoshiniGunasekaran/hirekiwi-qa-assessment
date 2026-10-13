@@ -1,0 +1,34 @@
+{
+  "name": "crew-job-portal-qa",
+  "version": "1.0.0",
+  "description": "QA assessment: test plan, test cases, bug reports and Playwright automation for a job application workflow.",
+  "private": true,
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node mock-app/server.js",
+    "test": "playwright test",
+    "test:chromium": "playwright test --project=chromium",
+    "test:firefox": "playwright test --project=firefox --workers=1",
+    "test:webkit": "playwright test --project=webkit --workers=1",
+    "test:headed": "playwright test --project=chromium --headed",
+    "report": "playwright show-report",
+    "test:smoke": "playwright test --grep @smoke",
+    "test:p1": "playwright test --grep @P1",
+    "test:regression": "playwright test",
+    "bdd": "cucumber-js",
+    "bdd:smoke": "cucumber-js --tags @smoke",
+    "bdd:p1": "cucumber-js --tags @P1",
+    "bdd:firefox": "cross-env BROWSER=firefox cucumber-js",
+    "bdd:webkit": "cross-env BROWSER=webkit cucumber-js",
+    "bdd:headed": "cross-env HEADED=true cucumber-js",
+    "test:all-browsers": "playwright test --workers=2"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^13.3.0",
+    "@playwright/test": "1.56.0",
+    "cross-env": "^10.1.0"
+  }
+}
